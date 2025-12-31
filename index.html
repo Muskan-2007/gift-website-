@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Love Surprise</title>
+    <style>
+        /* This creates the "Live" animated background */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffd1ff);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            max-width: 350px;
+            width: 85%;
+            border: 2px solid #ffb6c1;
+        }
+
+        .step { display: none; }
+        .step.active { display: block; }
+
+        img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #d81b60;
+            font-weight: 600;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 28px;
+            border: none;
+            background: #ff4d6d;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        button:hover {
+            background: #ff758f;
+            transform: scale(1.05);
+        }
+
+        .final-photo {
+            border: 10px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transform: rotate(-1deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="step1" class="step active">
+            <img src="37531.png.jpg" alt="Greeting">
+            <p>Hey! I made something for you.<br>Will you see it? ❤</p>
+            <div class="btn-group">
+                <button onclick="nextStep(2)">Yes, I will!</button>
+                <button onclick="showAngry()">No</button>
+            </div>
+        </div>
+
+        <div id="angry" class="step">
+            <img src="37532.png.jpg" alt="Angry">
+            <p>HOW DARE YOUUU! 😤</p>
+            <button onclick="nextStep(1)">Back and Say Yes!</button>
+        </div>
+
+        <div id="step2" class="step">
+            <img src="37533.png.jpg" alt="Shy">
+            <p>Hehe! You're so sweet...<br>Click for a surprise!! ✨</p>
+            <button onclick="nextStep(3)">Show me!</button>
+        </div>
+
+        <div id="step3" class="step">
+            <img src="37534.png.jpg" alt="Flowers">
+            <p>Happy new year my kuchupuchu!! 🌸<br>Click to open your gift!</p>
+            <button onclick="nextStep(4)">🎁 Open Gift</button>
+        </div>
+
+        <div id="step4" class="step">
+            <img src="37535.png.jpg" alt="Camera">
+            <p>SMILEEEEE! 📸<br>Click to reveal our photo!!</p>
+            <button onclick="nextStep(5)">Reveal Photo</button>
+        </div>
+
+        <div id="step5" class="step">
+            <img src="37537.png.jpg" class="final-photo" alt="Us">
+            <p style="font-size: 1.5rem;">I Love You Forever ❤</p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(num) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + num).classList.add('active');
+        }
+        function showAngry() {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('angry').classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
